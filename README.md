@@ -7,8 +7,8 @@ Ich möchte die Daten in einer SQL-Datenbank speichern. Im moment bin ich mir ni
 ...
 
 # 2.5
-[ ] Datenmodell erstellen
-[ ] SQL-Datenbank aufbauen (Tabellen etc, erstellen)
+- [ ] Datenmodell erstellen
+- [ ] SQL-Datenbank aufbauen (Tabellen etc, erstellen)
 ✍️ Heute habe ich... (50-100 Wörter)
 
 ☝️ Vergessen Sie nicht, Ihr bestehendes Projekt und die Neuerungen von heute hochzuladen. Beschreiben Sie eindeutig, was heute an Code dazugekommen ist.

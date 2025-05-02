@@ -4,20 +4,20 @@
 
 # Grob-Planung
 Ich möchte die Daten in einer SQL-Datenbank speichern. Im moment bin ich mir nicht sicher wie viele Spalten pro Tabelle aber ich rechne mit so ca. 3 Tabellen.
-...
 
 # 2.5
-- [x] Datenmodell erstellen
-- [x] SQL-Datenbank aufbauen (Tabellen etc, erstellen)
-✍️ Heute habe ich... (50-100 Wörter)
 
-☝️ Vergessen Sie nicht, Ihr bestehendes Projekt und die Neuerungen von heute hochzuladen. Beschreiben Sie eindeutig, was heute an Code dazugekommen ist.
+- [x] Datenmodell erstellen
+- [x] SQL Datenbank einrichten (Tabellen etc. erstellen)
+
+✍️ Heute habe ich mit Umlet zuerst ein Datenmodell gemacht am Anfang dachte ich wären es 3 Tabellen nötig aber dann habe ich mich entschieden das 2 auch passen. Danach hab ich die Datenbank von SQL aufgebaut die Tabellen erstellt und die Struktur allgemein die letzten 20 Minuten hab ich dann noch Videos dazu angeschaut wie man Management Studio mit Visual Studio für das nächste mal verbinden kann.Die SQL Statements hab ich in Code.cs geladen.
+
 
 # 9.5 Kernfunktionalität
-- [ ] ... (dieses AP sollte zur Hälfte offline, also ohne Laptop zu bearbeiten sein — beispielsweise ein Datenmodell?)
-- [ ] ...
-- [ ] ...
-✍️ Heute habe ich... (50-100 Wörter)
+- [ ] Aufgaben aus Datenbank laden und anzeigen (nachdem Management Studio mit Visual Studio verbunden wurde)
+- [ ] Button speichern hinzufügen mit dem man die Aufgaben speichern kann.
+- [ ] Aufgaben aus Datenbank entfern indem man den Löschen Button drückt
+✍️ Heute habe
 
 ☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen
 

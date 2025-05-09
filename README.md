@@ -14,18 +14,18 @@ Ich möchte die Daten in einer SQL-Datenbank speichern. Im moment bin ich mir ni
 
 
 # 9.5 Kernfunktionalität
-- [ ] Aufgaben aus Datenbank laden und anzeigen (nachdem Management Studio mit Visual Studio verbunden wurde)
-- [ ] Button speichern hinzufügen mit dem man die Aufgaben speichern kann.
-- [ ] Aufgaben aus Datenbank entfern indem man den Löschen Button drückt
-✍️ Heute habe
+- [x] Aufgaben aus Datenbank laden und anzeigen (nachdem Management Studio mit Visual Studio verbunden wurde)
+- [x] Button speichern hinzufügen mit dem man die Aufgaben speichern kann.
+- [x] Aufgaben aus Datenbank entfern indem man den Löschen Button drückt
+✍️ Heute habe ich mein Projekt erfolgreich mit einer SQL-Datenbank verbunden. Ich habe eine Hilfsklasse erstellt um Aufgaben zentral in die Datenbank einzufügen, zu laden und zu löschen. Die Verbindung zur Datenbank LP5 wurde erfolgreich getestet und ich konnte Aufgaben plus Priorität und Fälligkeitsdatum speichern. Dabei habe ich auch einen Foreign-Key Problem gelöst indem ich einen Benutzer in der Datenbank angelegt habe.Jetzt kann ich Aufgaben nicht nur anzeigen, sondern auch dauerhaft speichern und verwalten.
 
 ☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen
 
 # 16.5 Kernfunktionalität und Ausbau
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
+- [ ] Benutzerverwaltung einbauen ( Benutzer auswählen, denn momentan kann man nur mit 1 Benutzer arbeiten)
+- [ ] Aufgaben nach Benutzer filtern (nur Aufgaben zeigen die der momentane Benutzer auch ist)
+- [ ] Aufgaben bearbeiten also jetzt auch in der Datenbank
+- [ ] DataGridView statt ListBox einführen
 ✍️ Heute habe ich... (50-100 Wörter)
 
 ☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen

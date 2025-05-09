@@ -18,3 +18,11 @@ CREATE TABLE Aufgabe (
     benutzer_id INT NOT NULL,
     CONSTRAINT FK_Aufgabe_Benutzer FOREIGN KEY (benutzer_id) REFERENCES Benutzer(id)
 );
+
+INSERT INTO Benutzer (name, email)
+VALUES ('Standardbenutzer', 'standard@example.com');
+
+
+
+
+

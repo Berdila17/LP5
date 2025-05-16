@@ -22,17 +22,18 @@ Ich möchte die Daten in einer SQL-Datenbank speichern. Im moment bin ich mir ni
 ☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen
 
 # 16.5 Kernfunktionalität und Ausbau
-- [ ] Benutzerverwaltung einbauen ( Benutzer auswählen, denn momentan kann man nur mit 1 Benutzer arbeiten)
-- [ ] Aufgaben nach Benutzer filtern (nur Aufgaben zeigen die der momentane Benutzer auch ist)
-- [ ] Aufgaben bearbeiten also jetzt auch in der Datenbank
+- [x] Benutzerverwaltung einbauen ( Benutzer auswählen, denn momentan kann man nur mit 1 Benutzer arbeiten)
+- [x] Aufgaben nach Benutzer filtern (nur Aufgaben zeigen die der momentane Benutzer auch ist)
+- [x] Aufgaben bearbeiten also jetzt auch in der Datenbank
 - [ ] DataGridView statt ListBox einführen
-✍️ Heute habe ich... (50-100 Wörter)
+      
+✍️ Heute habe ich drei Arbeitspakete  umgesetzt, die Benutzerverwaltung mit eine ComboBox, das Filtern der Aufgaben nach Benutzer und die Bearbeitungsfunktion direkt in der Datenbank. Das vierte Arbeitspaket, die Umstellung auf DataGridView konnte ich aus Zeitgründen nicht mehr beginnen, da ich einen unerwarteten Fehler mit der Foreign Key-Verknüpfung beheben musste und da ich so sehr wollte diesen zu beheben war ich so konzentriert das ich sogar den Call um 11:15 verpasst habe weil dieser zuerst gelöst werden musste damit die anderen Funktionen korrekt laufen.
 
 ☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen
 
 # 23.5 Abschluss
-- [ ] ...
-- [ ] ... (falls Ihnen nichts einfällt: Können Sie mit einem PowerShell-Skript von Ihrer Datenbank regelmäßig ein backup erstellen?)
+- [ ] Datagridview statt Listbox einführen
+- [ ] evtl. mit Powershell ein Skript erstellen das regelmässig ein Backup erstellt
 - [ ] Reflexion über Ihre Arbeitsweise
 - [ ] Beschreibung des fertigen Projekts mit .gif etc.
 ✍️ Heute habe ich... (50-100 Wörter)

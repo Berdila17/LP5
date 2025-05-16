@@ -1,11 +1,9 @@
-﻿
-
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Aufgabenverwalter; 
+using Aufgabenverwalter;
 
 namespace Aufgabenverwalter
 {
@@ -19,14 +17,33 @@ namespace Aufgabenverwalter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cmbPriority.Items.Add("Hoch");
-            cmbPriority.Items.Add("Mittel");
-            cmbPriority.Items.Add("Niedrig");
-
-            if (cmbPriority.Items.Count > 0)
-                cmbPriority.SelectedIndex = 0;
-
+            cmbPriority.Items.AddRange(new[] { "Hoch", "Mittel", "Niedrig" });
+            cmbPriority.SelectedIndex = 0;
+            LadeBenutzer();
             LadeAufgabenAusDatenbank();
+        }
+
+        private void LadeBenutzer()
+        {
+            cmbBenutzer.Items.Clear();
+
+            using (SqlConnection conn = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=lp5;Trusted_Connection=True;"))
+            {
+                string query = "SELECT id, name FROM Benutzer";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string name = reader.GetString(1);
+                    cmbBenutzer.Items.Add(new BenutzerItem { Id = id, Name = name });
+                }
+            }
+
+            if (cmbBenutzer.Items.Count > 0)
+                cmbBenutzer.SelectedIndex = 0;
         }
 
         private void btnAddTask_Click(object sender, EventArgs e)
@@ -41,8 +58,7 @@ namespace Aufgabenverwalter
             string priority = cmbPriority.SelectedItem?.ToString() ?? "Mittel";
             DateTime dueDate = dtpDueDate.Value;
 
-            // In Datenbank speichern
-            DbHelper.InsertTask(taskDescription, priority, dueDate);
+            DbHelper.InsertTask(taskDescription, priority, dueDate); // benutzerId = 1 als Standard
 
             MessageBox.Show("✅ Aufgabe gespeichert!");
             txtTaskDescription.Clear();
@@ -59,7 +75,7 @@ namespace Aufgabenverwalter
         private void LadeAufgabenAusDatenbank()
         {
             lstTasks.Items.Clear();
-            var aufgaben = DbHelper.LadeAlleAufgaben();
+            var aufgaben = DbHelper.LadeAlleAufgaben(); // noch ohne Benutzerfilter
 
             foreach (var aufgabe in aufgaben)
             {
@@ -109,5 +125,13 @@ namespace Aufgabenverwalter
             public string Text { get; set; }
             public override string ToString() => Text;
         }
+
+        private class BenutzerItem
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public override string ToString() => Name;
+        }
     }
 }
+

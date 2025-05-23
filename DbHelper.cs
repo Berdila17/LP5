@@ -8,7 +8,7 @@ namespace Aufgabenverwalter
     {
         private static string connStr = @"Server=localhost\SQLEXPRESS;Database=lp5;Trusted_Connection=True;";
 
-        public static void InsertTask(string beschreibung, string prioritaet, DateTime faelligAm, int benutzerId)
+        public static void InsertTask(string beschreibung, string prioritaet, DateTime faelligAm, int benutzerId = 1)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
             {
@@ -56,6 +56,7 @@ namespace Aufgabenverwalter
             return aufgabenListe;
         }
 
+
         public static void DeleteTask(int id)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -67,7 +68,6 @@ namespace Aufgabenverwalter
                 cmd.ExecuteNonQuery();
             }
         }
-
         public static void UpdateTask(int id, string neueBeschreibung)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -77,9 +77,11 @@ namespace Aufgabenverwalter
                 cmd.Parameters.AddWithValue("@titel", neueBeschreibung);
                 cmd.Parameters.AddWithValue("@beschreibung", neueBeschreibung);
                 cmd.Parameters.AddWithValue("@id", id);
+
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
         }
+
     }
 }

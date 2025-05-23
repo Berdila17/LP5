@@ -49,5 +49,5 @@ Mein Projekt hat jetzt eine Datenbank mit der man die Aufgaben jetzt speichern k
 
 
 
-Reflexion
+# Reflexion
 ✍️ In dieser Lernperiode ging vieles gut. Das Projekt wurde Schritt für Schritt aufgebaut und mit der Datenbank verbunden. Die Benutzerverwaltung, das Speichern von Aufgaben und das Filtern nach Benutzer haben funktioniert. Auch das Bearbeiten und Löschen von Aufgaben konnte umgesetzt werden. Die Arbeit mit SQL war anfangs ungewohnt, aber durch Übung wurde es besser.Etwas schwieriger war der Umgang mit Fehlern in der Datenbank, zum Beispiel bei Verknüpfungen mit Foreing Keys. Das hat Zeit gekostet, wurde aber am Ende gelöst.Für die nächste Lernperiode ist das Ziel, Aufgaben besser zu planen und Funktionen frühzeitig zu testen. Ein persönlicher Vorsatz für das nächste Jahr im Lernatelier ist: konzentrierter arbeiten und sich nicht von allem ablenken lassen. 

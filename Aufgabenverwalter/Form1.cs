@@ -1,9 +1,12 @@
+
+
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Aufgabenverwalter;
+using Aufgabenverwalter; 
 
 namespace Aufgabenverwalter
 {
@@ -12,14 +15,20 @@ namespace Aufgabenverwalter
         public Form1()
         {
             InitializeComponent();
+            cmbBenutzer.SelectedIndexChanged += (s, e) => LadeAufgabenAusDatenbank();
             this.Load += Form1_Load;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cmbPriority.Items.AddRange(new[] { "Hoch", "Mittel", "Niedrig" });
-            cmbPriority.SelectedIndex = 0;
-            LadeBenutzer();
+            cmbPriority.Items.Add("Hoch");
+            cmbPriority.Items.Add("Mittel");
+            cmbPriority.Items.Add("Niedrig");
+
+            if (cmbPriority.Items.Count > 0)
+                cmbPriority.SelectedIndex = 0;
+
+            LadeBenutzer(); 
             LadeAufgabenAusDatenbank();
         }
 
@@ -38,6 +47,7 @@ namespace Aufgabenverwalter
                 {
                     int id = reader.GetInt32(0);
                     string name = reader.GetString(1);
+
                     cmbBenutzer.Items.Add(new BenutzerItem { Id = id, Name = name });
                 }
             }
@@ -58,7 +68,8 @@ namespace Aufgabenverwalter
             string priority = cmbPriority.SelectedItem?.ToString() ?? "Mittel";
             DateTime dueDate = dtpDueDate.Value;
 
-            DbHelper.InsertTask(taskDescription, priority, dueDate); // benutzerId = 1 als Standard
+           
+            DbHelper.InsertTask(taskDescription, priority, dueDate);
 
             MessageBox.Show("✅ Aufgabe gespeichert!");
             txtTaskDescription.Clear();
@@ -74,50 +85,65 @@ namespace Aufgabenverwalter
 
         private void LadeAufgabenAusDatenbank()
         {
-            lstTasks.Items.Clear();
-            var aufgaben = DbHelper.LadeAlleAufgaben(); // noch ohne Benutzerfilter
+            if (cmbBenutzer.SelectedItem is not BenutzerItem selectedBenutzer)
+                return;
 
+            dgvTasks.Rows.Clear();
+            dgvTasks.Columns.Clear();
+
+            dgvTasks.Columns.Add("id", "ID");
+            dgvTasks.Columns["id"].Visible = false; // ID nicht anzeigen
+
+            dgvTasks.Columns.Add("titel", "Titel");
+            dgvTasks.Columns.Add("prioritaet", "Priorität");
+            dgvTasks.Columns.Add("faellig", "Fällig am");
+
+            var aufgaben = DbHelper.LadeAlleAufgaben(selectedBenutzer.Id);
             foreach (var aufgabe in aufgaben)
             {
-                lstTasks.Items.Add(new ListItem { Id = aufgabe.Id, Text = aufgabe.Anzeige });
+                string[] teile = aufgabe.Anzeige.Split('|');
+                dgvTasks.Rows.Add(aufgabe.Id, teile[0].Trim(), teile[1].Split(':')[1].Trim(), teile[2].Split(':')[1].Trim());
             }
         }
+
 
         private void btnDeleteTask_Click(object sender, EventArgs e)
         {
-            if (lstTasks.SelectedItem is ListItem selected)
+            if (dgvTasks.SelectedRows.Count == 0)
             {
-                DbHelper.DeleteTask(selected.Id);
-                MessageBox.Show("❌ Aufgabe gelöscht");
-                LadeAufgabenAusDatenbank();
+                MessageBox.Show("Bitte wähle eine Aufgabe aus.");
+                return;
             }
-            else
-            {
-                MessageBox.Show("Bitte wählen Sie eine Aufgabe zum Löschen aus.");
-            }
+
+            int id = Convert.ToInt32(dgvTasks.SelectedRows[0].Cells["id"].Value);
+            DbHelper.DeleteTask(id);
+            MessageBox.Show("❌ Aufgabe gelöscht");
+            LadeAufgabenAusDatenbank();
         }
+
 
         private void btnEditTask_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Bearbeiten-Funktion funktioniert aktuell nur visuell in der Liste.\nIn der Datenbank muss sie noch eingebaut werden.");
+            if (dgvTasks.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Bitte wähle eine Aufgabe aus.");
+                return;
+            }
+
+            int id = Convert.ToInt32(dgvTasks.SelectedRows[0].Cells["id"].Value);
+            string alterTitel = dgvTasks.SelectedRows[0].Cells["titel"].Value.ToString();
+
+            string neuerText = Microsoft.VisualBasic.Interaction.InputBox("Neue Beschreibung:", "Aufgabe bearbeiten", alterTitel);
+            if (!string.IsNullOrWhiteSpace(neuerText))
+            {
+                DbHelper.UpdateTask(id, neuerText);
+                LadeAufgabenAusDatenbank();
+            }
         }
 
-        private void lstTasks_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            if (e.Index < 0) return;
 
-            string taskEntry = lstTasks.Items[e.Index].ToString();
 
-            Color color = Color.Black;
-            if (taskEntry.Contains("Hoch"))
-                color = Color.Red;
-            else if (taskEntry.Contains("Niedrig"))
-                color = Color.Green;
-
-            e.DrawBackground();
-            TextRenderer.DrawText(e.Graphics, taskEntry, e.Font, e.Bounds, color);
-            e.DrawFocusRectangle();
-        }
+        
 
         private class ListItem
         {
@@ -125,13 +151,13 @@ namespace Aufgabenverwalter
             public string Text { get; set; }
             public override string ToString() => Text;
         }
-
         private class BenutzerItem
         {
             public int Id { get; set; }
             public string Name { get; set; }
+
             public override string ToString() => Name;
         }
+
     }
 }
-

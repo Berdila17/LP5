@@ -32,16 +32,22 @@ Ich möchte die Daten in einer SQL-Datenbank speichern. Im moment bin ich mir ni
 ☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen
 
 # 23.5 Abschluss
-- [ ] Datagridview statt Listbox einführen
+- [x] Datagridview statt Listbox einführen
 - [ ] evtl. mit Powershell ein Skript erstellen das regelmässig ein Backup erstellt
-- [ ] Reflexion über Ihre Arbeitsweise
-- [ ] Beschreibung des fertigen Projekts mit .gif etc.
-✍️ Heute habe ich... (50-100 Wörter)
+- [x] Reflexion über Ihre Arbeitsweise
+- [x] Beschreibung des fertigen Projekts mit .gif etc.
+✍️ Heute habe ich eine Datagridview statt Listbox eingeführt weil dann die Darstellung besser aussieht da es Spalten hat, ich wollte noch ein Powershell Skript schreiben aber da wir es nur einmal hatten war es ein bisschen schwer zu schreiben ohne jegliche Hilfe ich habe Videos darüber angeschaut aber konnte am Schluss aufgrund der Zeit nicht fertig werden.
 
 ☝️ Vergessen Sie nicht, bis einen ersten Code auf github hochzuladen
 
-Fertiges Projekt
-✍️ Beschreiben Sie hier, wie Ihr Projekt am Ende aussieht, und fügen Sie mindestens ein .gif ein.
+# Fertiges Projekt
+
+Mein Projekt hat jetzt eine Datenbank mit der man die Aufgaben jetzt speichern kann dabei wurde geachtet was passiert wenn man eine Aufgabe löscht,bearbeitet etc.
+![image](https://github.com/user-attachments/assets/a44d7b9e-c678-43e1-bbb7-3a9d65aa15a9)
+![image](https://github.com/user-attachments/assets/50f2134d-add6-45d9-bc28-2774c6af495f)
+
+
+
 
 Reflexion
-✍️ Was ging gut, was ging weniger gut? Was haben Sie gelernt, und was würden Sie bei der nächsten Lernperiode versuchen besser zu machen? Fassen Sie auch einen übergeordneten Vorsatz für Ihr nächstes Jahr im Lernatelier (100 bis 200 Wörter).
+✍️ In dieser Lernperiode ging vieles gut. Das Projekt wurde Schritt für Schritt aufgebaut und mit der Datenbank verbunden. Die Benutzerverwaltung, das Speichern von Aufgaben und das Filtern nach Benutzer haben funktioniert. Auch das Bearbeiten und Löschen von Aufgaben konnte umgesetzt werden. Die Arbeit mit SQL war anfangs ungewohnt, aber durch Übung wurde es besser.Etwas schwieriger war der Umgang mit Fehlern in der Datenbank, zum Beispiel bei Verknüpfungen mit Foreing Keys. Das hat Zeit gekostet, wurde aber am Ende gelöst.Für die nächste Lernperiode ist das Ziel, Aufgaben besser zu planen und Funktionen frühzeitig zu testen. Ein persönlicher Vorsatz für das nächste Jahr im Lernatelier ist: konzentrierter arbeiten und sich nicht von allem ablenken lassen. 
